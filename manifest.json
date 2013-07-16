@@ -1,0 +1,37 @@
+{
+	"AppDescription": {
+		"en": "A terminal for SpotiCLI"
+	},
+	"AppIcon": {
+		"36x18": "tutorial.png"
+	},
+	"AppName": {
+		"en": "SpotiCLI"
+	},
+	"BundleIdentifier": "spoticli",
+	"BundleType": "Application",
+	"BundleVersion": "0.1",
+	"DefaultTabs": [
+		{
+			"arguments": "index",
+			"title": {
+				"en": "Home"
+			}
+		}
+	],
+	"Dependencies": {
+	  "api": "0.2.3",
+	  "util": "0.1.0",
+	  "resources": "0.2.2"
+  },
+	"RequiredInterface": 1,
+	"RequiredPermissions": [
+	    "https://*.facebook.com",
+	    "http://*.facebook.com",
+	    "http://spoticli.herokuapp.com"
+	],
+	"SupportedLanguages": [
+		"en"
+	],
+	"VendorIdentifier": "co.mager"
+}
