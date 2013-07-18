@@ -12,7 +12,6 @@ Sign up here: https://developer.spotify.com/technologies/apps/
 
 For Mac/Linux:
 
-* Get a [Spotify developer account][spotifyapi] if you don't already have one.
 * Make a Spotify directory in your home directory if you don't already have one.
   * `mkdir ~/Spotify`
 * Enter the directory and clone this repo.

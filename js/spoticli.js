@@ -10,7 +10,7 @@ var first_arg;
 var song = '';
 var list;
 var using = 'n';
-var output;
+var help_msg;
 var search_term;
 var current_player;
 var email;
@@ -67,13 +67,13 @@ parser.on('time', function(name, time) {
 function help() {
     switch(first_arg) {
     case "play":
-        output = "[play] plays the given song or playlist";
+        help_msg = "[play] plays the given song or playlist";
         break;
     case "find":
-        output = "[find] searches spotify for a all songs that match a search term";
+        help_msg = "[find] searches spotify for a all songs that match a search term";
         break;
     default:
-        output = "[" + first_arg + "] command not found";
+        help_msg = "[" + first_arg + "] command not found";
     }
 }
 
@@ -179,8 +179,8 @@ function album() {
 
 function find() {
     var search = new models.Search(search_term);
+    var out = "";
     search.localResults = models.LOCALSEARCHRESULTS.APPEND;
-    var out = "</br>";
     search.observe(models.EVENT.CHANGE, function() {
         var results = search.tracks;
         for (var i=0; i<results.length; i++){
@@ -199,25 +199,22 @@ function find() {
 
 //parser for input
 function parse_input(input) {
-    output = "";
     args = input.split(" ");
+    help_msg = "";
     parser.parse(args);
-    if (output == "") {
+    if (help_msg == "") {
         switch(first_arg) {
             case 'play':
-                output = play();
-            break;
+                return play();
             case 'find':
                 search_term = args[1];
-                output = find();
-            break;
+                return find();
             case 'pause':
                 pause();
-                output = "";
-                break;
+                return "";
             case 'troll':
                 window.open("http://spoticli.herokuapp.com/index.php");
-            break;
+                return "";
             case 'save':
                 $.ajax({
                     type: 'GET',
@@ -248,26 +245,19 @@ function parse_input(input) {
                 return xmlHttp.responseText;
                 */
                 return "";
-            break;
             case 'resume':
-              resume();
-            break;
+                resume();
+                return "";
             case 'seek':
-              seek();
-            break;
-            case 'album':
-              album();
-            break;
+                seek();
+                return "";
             case 'info':
-              return info();
-            break;
+                return info();
             default:
                 help();
         }
     }
-    first_arg = ""
-    console.log(output);
-    return output;
+    return "";
 }
 
 // Up-Down Command History (Daniel Duan)
