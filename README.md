@@ -7,6 +7,8 @@ A Spotify App that lets you play songs from a built in command-line. It uses the
 SpotiCLI won Best hack using the Spotify API and Best hack using the SendGrid API for [Hollywood Hack Day 2013][hollywoodhack].
 
 ## Quick start
+~Note: Spotify developer account is required~
+Sign up here: https://developer.spotify.com/technologies/apps/
 
 For Mac/Linux:
 
@@ -16,7 +18,8 @@ For Mac/Linux:
 * Enter the directory and clone this repo.
   * `cd ~/Spotify`
   * `git clone https://github.com/Goom11/SpotiCLI.git`
-* Open spotify, navigate to the app and enjoy.
+* Open or restart Spotify, navigate to the 'Develop' menu and select 'Show Bundle Manager'
+* Click on the 'Apps' tab and open SpotiCLI
 
 ## Todo:
 
